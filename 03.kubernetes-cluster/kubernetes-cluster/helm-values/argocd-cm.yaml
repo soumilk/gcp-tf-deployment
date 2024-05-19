@@ -1,0 +1,26 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    app.kubernetes.io/component: server
+    app.kubernetes.io/instance: argocd
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: argocd-cm
+    app.kubernetes.io/part-of: argocd
+    helm.sh/chart: argo-cd-4.9.7
+  name: argocd-cm
+  namespace: argocd
+data:
+  admin.enabled: "true"
+  application.instanceLabelKey: argocd.argoproj.io/instance
+  exec.enabled: "false"
+  server.rbac.log.enforce.enable: "false"
+  configManagementPlugins: |-
+    - name: kustom-plugin
+      init:
+      # Init always happens immediately before generate, but its output is not treated as manifests.
+      # This is a good place to, for example, download chart dependencies.
+        command: [sh, -c, 'echo "Initializing plugin"']
+      generate:
+        command: ["/bin/sh", "-c"]
+        args: ["API_HOST_NAME=${ARGOCD_ENV_API_HOST_NAME} DASHBOARD_API_HOST_NAME=${ARGOCD_ENV_DASHBOARD_API_HOST_NAME} AUTOMATION_API_HOST_NAME=${ARGOCD_ENV_AUTOMATION_API_HOST_NAME} AUTH_API_HOST_NAME=${ARGOCD_ENV_AUTH_API_HOST_NAME} ACCOUNTS_API_HOST_NAME=${ARGOCD_ENV_ACCOUNTS_API_HOST_NAME} LTMS_API_HOST_NAME=${ARGOCD_ENV_LTMS_API_HOST_NAME} TENANT_ID=${ARGOCD_ENV_TENANT_ID} CLIENT_ID=${ARGOCD_ENV_CLIENT_ID} VAULT_NAME=${ARGOCD_ENV_VAULT_NAME} AWS_REGION=${ARGOCD_ENV_AWS_REGION} kustomize build"]

@@ -1,0 +1,42 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: tw
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: <repo-url>
+    targetRevision: HEAD
+    path: <customize-path>
+    plugin:
+      # For either argocd-cm- or sidecar-installed CMPs, you can pass environment variables to the CMP.
+      name: kustom-plugin
+      env:
+        - name: API_HOST_NAME
+          value: tw-demo-322628173522.tw.cloud
+        - name: TENANT_ID
+          value: tw-demo
+        - name: VAULT_NAME
+          value: vault
+        - name: AWS_REGION
+          value: us-east-1
+        - name: LTMS_API_HOST_NAME
+          value: apiHost
+        - name: DASHBOARD_API_HOST_NAME
+          value: apiHost
+        - name: AUTOMATION_API_HOST_NAME
+          value: apiHost
+        - name: AUTH_API_HOST_NAME
+          value: apiHost
+        - name: ACCOUNTS_API_HOST_NAME
+          value: apiHost
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: tw
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
+    automated:
+      # selfHeal: true  # sync with remote repository
+      prune: true # if delete yaml file on repo, then argocd will also delete it
