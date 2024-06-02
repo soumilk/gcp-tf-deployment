@@ -3,12 +3,12 @@ data "google_compute_network" "tw-vpc" {
   project = var.project_id
 }
 
-data "google_compute_subnetwork" "tw-vpc-subnet" {
-  for_each = { for x in var.gke_cluster_and_nodepools : x.cluster_name => x }
-  name     = each.value.subnetwork
-  region   = each.value.region
-  project  = each.value.project_host
-}
+#data "google_compute_subnetwork" "tw-vpc-subnet" {
+#  for_each = { for x in var.gke_cluster_and_nodepools : x.cluster_name => x }
+#  name     = each.value.subnetwork
+#  region   = each.value.region
+#  project  = each.value.project_host
+#}
 
 module "tw_gke" {
   source                          = "./kubernetes-cluster"
