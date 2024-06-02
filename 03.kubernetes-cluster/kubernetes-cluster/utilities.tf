@@ -118,7 +118,7 @@ resource "helm_release" "mediawiki" {
   namespace        = "mediawiki"
   create_namespace = true
   timeout          = 600
-  values = [templatefile("./helm-values/mediawiki-values.yaml.tpl", {
+  values = [templatefile("${path.module}/helm-values/mediawiki-values.yaml.tpl", {
     MEDIAWIKI_USER = "user"
     MEDIAWIKI_PASS = "7A91aL7I9kHy"
     MEDIAWIKI_EMAIL = "soumilk.k@gmail.com"
@@ -129,7 +129,9 @@ resource "helm_release" "mediawiki" {
     LOAD_BALANCER_IP=""
   })]
   depends_on = [
-    azurerm_kubernetes_cluster.k8s_cluster
+    google_container_cluster.tw_gke_cluster,
+    google_container_node_pool.tw_primary_nodepools,
+    kubernetes_namespace.tw_nginx
   ]
 }
 
@@ -142,12 +144,14 @@ resource "helm_release" "mariadb" {
   namespace        = "mediawiki"
   create_namespace = true
   timeout          = 600
-  values = [templatefile("./helm-values/mariadb-values.yaml.tpl", {
+  values = [templatefile("${path.module}/helm-values/mariadb-values.yaml.tpl", {
     MARIADB_USER = "root"
     MARIADB_PASS = "adminpass"
     MARIADB_DB = "mediawiki"
   })]
   depends_on = [
-    azurerm_kubernetes_cluster.k8s_cluster
+    google_container_cluster.tw_gke_cluster,
+    google_container_node_pool.tw_primary_nodepools,
+    kubernetes_namespace.tw_nginx
   ]
 }

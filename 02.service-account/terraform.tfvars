@@ -34,8 +34,3 @@ gcp_service_accounts_list = [
     ]
   }
 ]
-
-
-## NOTE: In case of the shared VPC, there will be some extra permissions required
-
-#container.clusters.get permission is required for the bastion

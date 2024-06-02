@@ -24,3 +24,14 @@ This repo consists of the modules which would be requrired for the deployment of
 - Plan the terraform resource creation `terraform plan`.
 - After successful creation and analysis of the plan, `terraform apply` to give manual approval or `terraform approve --auto-approve` to approve this automatically in an automated flow.
 - Verify the created resources.
+
+
+## Demo and Screenshots
+
+1. The execution of the Networking module 
+![alt text](vpc.png)
+
+2. The execution of the Service account module
+![alt text](sa.png)
+
+3. The execution of the K8s Cluster
