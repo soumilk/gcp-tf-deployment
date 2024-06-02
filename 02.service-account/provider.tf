@@ -9,7 +9,7 @@ terraform {
   required_version = ">= 1.5.0"
 
   backend "gcs" {
-    bucket = "tw-infra-tfstate-tw-updated-tests"
+    bucket = "tw-infra-tfstate"
     prefix = "service-account-tfstate/"
   }
 
