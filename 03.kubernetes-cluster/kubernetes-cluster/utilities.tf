@@ -99,7 +99,7 @@ resource "helm_release" "tw_nginx_helm_release" {
 #     INGRESS_HOST       = "argocd-${var.project_id}-${var.org_id}.tw.cloud"
 #     INGRESS_TLS_SECRET = "argo-tls"
 #     REPO_URL           = "https://github.com/LambdatestIncPrivate/tw-base-deployment"
-#     REPO_PATH          = "microservices/overlays/gcp/tw-cgi-demo"
+#     REPO_PATH          = "microservices/overlays/gcp/tw-demo"
 #     PROJECT_ID         = "${var.project_id}"
 #   })]
 #   depends_on = [

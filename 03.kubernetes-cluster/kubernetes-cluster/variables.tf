@@ -576,7 +576,7 @@ variable "ingress_type" {
 variable "workload_identity_email" {
   type        = string
   description = "The service account used for the pods workload identity"
-  default     = "tw-cgi-gke-workload-identity"
+  default     = "tw-gke-workload-identity"
 }
 
 /******************************************

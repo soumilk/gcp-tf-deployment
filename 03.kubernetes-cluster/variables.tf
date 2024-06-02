@@ -31,7 +31,7 @@ variable "enabled_internal_dashboards" {
 variable "workload_identity_email" {
   type        = string
   description = "The service account used for the pods workload identity"
-  default     = "tw-cgi-gke-workload-identity"
+  default     = "tw-gke-workload-identity"
 }
 
 variable "gke_cluster_and_nodepools" {

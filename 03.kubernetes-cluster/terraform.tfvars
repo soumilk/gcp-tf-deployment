@@ -4,7 +4,7 @@ project_id = "<project_id>"
 region     = "asia-south1"
 shared_vpc_project = ""
 shared_vpc_project_vpc = ""
-workload_identity_email = "tw-cgi-gke-workload-identity"
+workload_identity_email = "tw-gke-workload-identity"
 
 gke_cluster_and_nodepools = {
   regional                           = true
@@ -85,7 +85,7 @@ gke_cluster_and_nodepools = {
       enable_gvnic                = false
       auto_repair                 = true
       auto_upgrade                = true
-      service_account             = "tw-cgi-gke" //add the gke service account
+      service_account             = "tw-gke" //add the gke service account
       preemptible                 = false
       initial_node_count          = 1
       enable_secure_boot          = true
