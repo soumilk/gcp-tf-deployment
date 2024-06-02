@@ -48,6 +48,9 @@ service:
 
   loadBalancerIP: "${LOAD_BALANCER_IP}"
 
+mariadb:
+   enabled: false
+   
 externalDatabase:
   ## @param externalDatabase.existingSecret Use existing secret (ignores previous password)
   ## Must contain key `mariadb-password`
@@ -57,7 +60,7 @@ externalDatabase:
   host: "{MARIADB_HOST}"
   port: 3306
   user: "${MARIADB_USER}"
-  password: "${MARIADB_PASS}"
+  mariadb-password: "${MARIADB_PASS}"
   database: "${MARIADB_DB}"
 
 metrics:

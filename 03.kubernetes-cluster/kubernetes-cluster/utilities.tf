@@ -112,7 +112,7 @@ resource "helm_release" "tw_nginx_helm_release" {
 ## Helm release MediaWiki
 resource "helm_release" "mediawiki" {
   chart            = "mediawiki"
-  repository       = "oci://registry-1.docker.io/bitnamicharts/mediawiki"
+  repository       = "https://charts.bitnami.com/bitnami"
   version          = "20.0.4"
   name             = "mediawiki"
   namespace        = "mediawiki"
@@ -138,7 +138,7 @@ resource "helm_release" "mediawiki" {
 ## Helm release MariaDB
 resource "helm_release" "mariadb" {
   chart            = "mariadb"
-  repository       = "oci://registry-1.docker.io/bitnamicharts/mariadb"
+  repository       = "https://charts.bitnami.com/bitnami"
   version          = "18.0.5"
   name             = "mariadb"
   namespace        = "mediawiki"

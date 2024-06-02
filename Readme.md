@@ -35,3 +35,6 @@ This repo consists of the modules which would be requrired for the deployment of
 ![alt text](sa.png)
 
 3. The execution of the K8s Cluster
+
+4. The Remote state files stored in the storage bucket in the GCP after successful creation of the resources
+![alt text](tf-state.png)

@@ -94,13 +94,7 @@ gke_cluster_and_nodepools = {
       labels = {
         "hyenodepool" : "application"
       }
-      taints = [
-        {
-          effect = "NO_SCHEDULE"
-          key    = "application-pool"
-          value  = "true"
-        }
-      ]
+      taints = []
     }
   ]
 }
