@@ -38,7 +38,8 @@ This repo consists of the modules which would be requrired for the deployment of
 ![alt text](k8s.png)
 
 5. The workloads of the Mediawiki was getting connection refused, resolution of this required more time than I alloted for this task myself, skipped it because of limited bandwidth.
-![alt text](deployments.png) 
+![alt text](k8s.png) 
+![alt text](deployment.png)
 
 6. The Remote state files stored in the storage bucket in the GCP after successful creation of the resources
 ![alt text](tf-state.png)
