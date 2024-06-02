@@ -36,3 +36,5 @@ subnets = [
 #   log_config_enable                  = false
 #   nat_log_config_filter              = "ALL"
 # }
+
+firewall_rules = []
