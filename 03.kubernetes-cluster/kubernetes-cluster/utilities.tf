@@ -132,6 +132,7 @@ resource "helm_release" "mediawiki" {
     google_container_cluster.tw_gke_cluster,
     google_container_node_pool.tw_primary_nodepools,
     kubernetes_namespace.tw_nginx
+    helm_release.mariadb
   ]
 }
 
