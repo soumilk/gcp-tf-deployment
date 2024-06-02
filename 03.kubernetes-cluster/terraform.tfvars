@@ -62,11 +62,9 @@ gke_cluster_and_nodepools = {
     all = []
   }
   cluster_resource_labels = {
-    "customer" : "cgi",
     "environment" : "prod",
     "appname" : "tw",
     "created-with" : "terraform",
-    "maintained-by" : "lambdatest"
   }
   ingress_type = "public" # or private
   node_pools = [
